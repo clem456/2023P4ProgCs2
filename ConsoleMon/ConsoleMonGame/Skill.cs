@@ -5,12 +5,14 @@
         internal int damage;
         internal int energyCost;
         internal string name;
+        internal Element element;
 
-        public Skill(int damage, int energyCost, string name)
+        public Skill(int damage, int energyCost, string name, Element element)
         {
             this.damage = damage;
             this.energyCost = energyCost;
             this.name = name;
+            this.element = element;
         }
 
         internal void UseOn(ConsoleMon target, ConsoleMon caster)
