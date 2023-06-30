@@ -7,7 +7,12 @@
         public string name { get; set; }
         public Element element { get; set; }
 
-        public Skill(int damage, int energyCost, string name, Element element)
+        public Skill()
+        {
+
+        }
+
+        internal Skill(int damage, int energyCost, string name, Element element)
         {
             this.damage = damage;
             this.energyCost = energyCost;
