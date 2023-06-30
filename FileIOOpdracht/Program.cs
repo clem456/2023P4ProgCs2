@@ -9,14 +9,14 @@ namespace FileIOOpdracht
         {
             string[] content = File.ReadAllLines("leesdezefile.txt");
 
-            File.WriteAllText("mijnnieuwefile.txt", "hey!");
+            File.WriteAllText(@"mijnnieuwefile.txt", "hey!");
 
             foreach (string line in content)
             {
                 Console.WriteLine(line);
             }
 
-            Console.WriteLine(File.ReadAllText("mijnnieuwefile.txt"));
+            Console.WriteLine(File.ReadAllText(@"mijnnieuwefile.txt"));
         }
     }
 }

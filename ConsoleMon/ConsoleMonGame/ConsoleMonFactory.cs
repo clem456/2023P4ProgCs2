@@ -17,12 +17,7 @@ namespace ConsoleMonGame
 
                 string[] consoleMonData = typeSplit[0].Split(",");
 
-                List<Skill> skills = new List<Skill>()
-                {
-                    new Skill(50, 30, "Burning Attack", Element.Fire)
-                };
-
-                ConsoleMon dataMon = new ConsoleMon(int.Parse(consoleMonData[2]), int.Parse(consoleMonData[4]), consoleMonData[0], Element.Fire, skills);
+                ConsoleMon dataMon = new ConsoleMon(int.Parse(consoleMonData[2]), int.Parse(consoleMonData[4]), consoleMonData[0], Element.Fire);
 
                 Console.WriteLine(dataMon.name);
             }
