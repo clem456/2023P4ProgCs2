@@ -1,5 +1,6 @@
 ﻿namespace FileDirOpdracht;
 using System.IO;
+using System.Xml.XPath;
 
 internal class Program
 {
@@ -7,17 +8,35 @@ internal class Program
     {
         DirectoryInfo dir = new DirectoryInfo(@"C:\Users\clemc\OneDrive\Documenten\Ma\Lj1\Prog\Periode4\2023P4ProgCs2");
 
-        FileInfo[] fileInfo = dir.GetFiles();
         DirectoryInfo[] dirInfo = dir.GetDirectories();
 
-        foreach (var file in fileInfo)
+        string indicator = "";
+        
+        void getDir(DirectoryInfo dir)
         {
-            Console.WriteLine(file.Name);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(indicator + dir.Name);
+
+            indicator += "---- ";
+
+            foreach(var child in dir.GetDirectories())
+            {
+                if (child.GetDirectories().Length > 0)
+                {
+                    getDir(child);
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine(indicator + dir.Name);
+                }
+            }
         }
 
-        foreach (var newDir in dirInfo) 
+        foreach (var child in dirInfo)
         {
-            Console.WriteLine(newDir.Name);
+            indicator = "";
+            getDir(child);
         }
     }
 }
