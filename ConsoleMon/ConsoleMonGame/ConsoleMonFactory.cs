@@ -28,7 +28,7 @@ namespace ConsoleMonGame
             string json = File.ReadAllText(dataFile);
 
             List<ConsoleMon> templates = JsonSerializer.Deserialize<List<ConsoleMon>>(json);
-
+            
             return templates;
         }
 
@@ -39,7 +39,7 @@ namespace ConsoleMonGame
 
             foreach(Skill skill in copyFrom.skills)
             {
-                copyResult.skills.Add(skill);
+                copyResult.skills.Add(CopySkill(skill));
             }
 
             return copyResult;

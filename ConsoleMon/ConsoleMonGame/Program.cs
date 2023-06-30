@@ -69,6 +69,7 @@ namespace ConsoleMonGame
             TestCopySkill();
             */
 
+            /*
             static void TestCopyConsoleMon()
             {
                 Console.WriteLine("TestCopyConsoleMon");
@@ -91,6 +92,21 @@ namespace ConsoleMonGame
             }
 
             TestCopyConsoleMon();
+            */
+
+            static void TestArena()
+            {
+                Arena arena = new Arena();
+                
+                ConsoleMonFactory factory = new ConsoleMonFactory();
+
+                List<ConsoleMon> templates = factory.LoadJson("monsterdata.json");
+
+                arena.Fight(templates[0], templates[1]);
+                arena.Fight(templates[1], templates[0]);
+            }
+
+            TestArena();
         }
     }
 }
